@@ -1,3 +1,42 @@
+
+注意,例中的library中的HiPermission构建多个权限申请的方法:
+如果这里传入的permissions为null或不传,将调用自带的三个请求例子,如下,存储\位置\拍照.其中存储若默认已授权会被自动过滤掉.
+```java
+HiPermission.create(MainActivity.this)
+                        .animStyle(R.style.PermissionAnimFade).permissions(null)
+                        .checkMutiPermission(new PermissionCallback() {
+                            @Override
+                            public void onClose() {
+                                Log.i(TAG, "onClose");
+                                showToast(getString(R.string.permission_on_close));
+                            }
+
+                            @Override
+                            public void onFinish() {
+                                showToast(getString(R.string.permission_completed));
+                            }
+
+                            @Override
+                            public void onDeny(String permission, int position) {
+                                Log.i(TAG, "onDeny");
+                            }
+
+                            @Override
+                            public void onGuarantee(String permission, int position) {
+                                Log.i(TAG, "onGuarantee");
+                            }
+                        });
+
+```java
+private String[] mNormalPermissionNames={"存储","位置","拍照"};//例子中是从String数组中读取出的.
+private String[] mNormalPermissions = {
+            WRITE_EXTERNAL_STORAGE, ACCESS_FINE_LOCATION, CAMERA};
+private int[] mNormalPermissionIconRes = {
+            R.drawable.permission_ic_storage, R.drawable.permission_ic_location, R.drawable.permission_ic_camera};
+
+
+---
+
 # HiPermission
 A simple and beautiful runtime permission library on Android.[中文文档](/README-CN.md)
 
