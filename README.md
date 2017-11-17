@@ -1,7 +1,9 @@
 
 注意,例中的library中的HiPermission构建多个权限申请的方法:
 如果这里传入的permissions为null或不传,将调用自带的三个请求例子,如下,存储\位置\拍照.其中存储权限若默认已授权会被自动过滤掉,不再弹出申请.
+
 ```java
+
 HiPermission.create(MainActivity.this)
                         .animStyle(R.style.PermissionAnimFade).permissions(null)
                         .checkMutiPermission(new PermissionCallback() {
@@ -28,6 +30,8 @@ HiPermission.create(MainActivity.this)
                         });
 
 ```java
+
+
 private String[] mNormalPermissionNames={"存储","位置","拍照"};//例子中是从String数组中读取出的.
 private String[] mNormalPermissions = {
             WRITE_EXTERNAL_STORAGE, ACCESS_FINE_LOCATION, CAMERA};
