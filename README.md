@@ -2,6 +2,7 @@
 如果这里传入的permissions为null或不传,将调用自带的三个请求例子,如下,存储\位置\拍照.其中存储权限若默认已授权会被自动过滤掉,不再弹出申请.
 
 
+```java
 
 HiPermission.create(MainActivity.this)
                         .animStyle(R.style.PermissionAnimFade).permissions(null)
@@ -27,7 +28,8 @@ HiPermission.create(MainActivity.this)
                                 Log.i(TAG, "onGuarantee");
                             }
                         });
-
+			
+```
 
 
 若传入的permissions为null或没有传入,拿的将是如下三个来构建请求
