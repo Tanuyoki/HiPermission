@@ -40,6 +40,11 @@ private String[] mNormalPermissions = {
 private int[] mNormalPermissionIconRes = {
             R.drawable.permission_ic_storage, R.drawable.permission_ic_location, R.drawable.permission_ic_camera};
 
+若想自己增加权限可以这样来添加:
+
+List<PermissionItem> permissionItems = new ArrayList<PermissionItem>();
+permissionItems.add(new PermissionItem(Manifest.permission.CAMERA, "Camera", R.drawable.permission_ic_memory));
+permissionItems.add(new PermissionItem(Manifest.permission.ACCESS_FINE_LOCATION, "Location", R.drawable.permission_ic_location));
 
 ---
 
